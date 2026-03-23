@@ -1,15 +1,12 @@
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import {
   Phone,
   Mail,
   MapPin,
-  Users,
-  Network,
-  Camera,
   Clock,
   ChevronRight,
 } from 'lucide-react';
+import SocialLinks from './SocialLinks';
 
 const footerLinks = {
   company: [
@@ -26,12 +23,12 @@ const footerLinks = {
     { name: 'Safari Trips', href: '/services' },
     { name: 'International Trips', href: '/services' },
   ],
-  vehicles: [
-    { name: 'Toyota Quantum', href: '/fleet/toyota-quantum' },
-    { name: 'Honda Accord', href: '/fleet/honda-accord' },
-    { name: 'Standard SUV', href: '/fleet/standard-suv' },
-    { name: 'Executive Sedan', href: '/fleet/executive-sedan' },
-    { name: 'Mini Bus', href: '/fleet/mini-bus' },
+  locations: [
+    { name: 'Harare', href: '/contact' },
+    { name: 'Bulawayo', href: '/contact' },
+    { name: 'Victoria Falls', href: '/contact' },
+    { name: 'Mutare', href: '/contact' },
+    { name: 'Masvingo', href: '/contact' },
   ],
 };
 
@@ -43,12 +40,13 @@ export default function Footer() {
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-brand-orange/3 rounded-full blur-[120px]" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          <div className="lg:col-span-1">
-            <h3 className="font-heading font-bold text-2xl text-white mb-4">Manika</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+          <div className="lg:col-span-2">
+            <h3 className="font-heading font-bold text-2xl text-white mb-4">Manika Car Rental</h3>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              Your trusted partner for premium car rental services across Zimbabwe and beyond. 
-              From airport transfers to international journeys, we deliver excellence on every trip.
+              Your trusted partner for premium car rental services across Zimbabwe. 
+              From Harare to Victoria Falls, airport transfers to safari adventures - 
+              we deliver excellence on every journey.
             </p>
             
             <div className="flex items-start gap-3 mb-6 p-4 glass-light rounded-xl">
@@ -60,25 +58,15 @@ export default function Footer() {
               </div>
             </div>
             
-            <div className="flex gap-3">
-              {[Users, Network, Camera].map((Icon, i) => (
-                <motion.a
-                  key={i}
-                  href="#"
-                  whileHover={{ scale: 1.15, y: -3 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="w-10 h-10 rounded-xl bg-gray-800 hover:bg-brand-orange flex items-center justify-center transition-colors duration-300"
-                >
-                  <Icon size={18} />
-                </motion.a>
-              ))}
+            <div className="mb-4">
+              <p className="text-gray-400 text-sm mb-3">Follow Us</p>
+              <SocialLinks />
             </div>
           </div>
 
           <div>
-            <h4 className="font-heading font-semibold text-lg mb-6 text-brand-orange flex items-center gap-2">
-              Company
-              <div className="h-px bg-brand-orange/30 flex-grow ml-2" />
+            <h4 className="font-heading font-semibold text-lg mb-6 text-brand-orange">
+              Quick Links
             </h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
@@ -96,9 +84,8 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-heading font-semibold text-lg mb-6 text-brand-orange flex items-center gap-2">
+            <h4 className="font-heading font-semibold text-lg mb-6 text-brand-orange">
               Services
-              <div className="h-px bg-brand-orange/30 flex-grow ml-2" />
             </h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
@@ -116,18 +103,17 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-heading font-semibold text-lg mb-6 text-brand-orange flex items-center gap-2">
-              Fleet
-              <div className="h-px bg-brand-orange/30 flex-grow ml-2" />
+            <h4 className="font-heading font-semibold text-lg mb-6 text-brand-orange">
+              We Serve
             </h4>
             <ul className="space-y-3">
-              {footerLinks.vehicles.map((link) => (
+              {footerLinks.locations.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.href}
                     className="text-gray-400 hover:text-brand-orange transition-colors text-sm flex items-center gap-2 group"
                   >
-                    <ChevronRight size={14} className="text-brand-orange/50 group-hover:text-brand-orange transition-colors" />
+                    <MapPin size={14} className="text-brand-orange/50" />
                     {link.name}
                   </Link>
                 </li>
@@ -139,7 +125,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-500 text-sm">
-              © {new Date().getFullYear()} Manika Car Rental. All rights reserved.
+              © {new Date().getFullYear()} Manika Car Rental. All rights reserved. | Harare, Zimbabwe
             </p>
             <div className="flex items-center gap-6">
               <a href="tel:+263776254884" className="flex items-center gap-2 text-gray-400 hover:text-brand-orange transition-colors text-sm">
@@ -150,10 +136,6 @@ export default function Footer() {
                 <Mail size={14} />
                 sales@manikacarrental.com
               </a>
-              <span className="flex items-center gap-2 text-gray-400 text-sm">
-                <MapPin size={14} />
-                33 Argyle Road, Avondale, Harare
-              </span>
             </div>
           </div>
         </div>
