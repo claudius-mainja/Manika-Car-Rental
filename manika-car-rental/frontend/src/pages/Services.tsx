@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, Plane, Key, Users, Compass, Briefcase, X, Phone, Mail, Check, ChevronRight } from 'lucide-react';
+import { MapPin, Plane, Key, Users, Compass, Briefcase, X, Phone, Mail, Check, ChevronRight, Star } from 'lucide-react';
 import { services } from '../data/services';
 
 function HeroSection() {
@@ -653,6 +653,14 @@ function ServiceCard({ service, index, onQuote }: ServiceCardProps) {
       </div>
 
       <div className="p-6">
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex gap-0.5">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} size={14} className="text-brand-orange fill-brand-orange" />
+            ))}
+          </div>
+          <span className="text-gray-500 text-xs">(4.9)</span>
+        </div>
         <p className="text-gray-400 text-sm mb-4 line-clamp-2">{service.description}</p>
         
         <div className="grid grid-cols-2 gap-2 mb-6">

@@ -10,7 +10,6 @@ import {
   Clock,
   ChevronRight,
 } from 'lucide-react';
-import Logo from './Logo';
 
 const footerLinks = {
   company: [
@@ -46,7 +45,7 @@ export default function Footer() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="lg:col-span-1">
-            <Logo className="mb-6" />
+            <h3 className="font-heading font-bold text-2xl text-white mb-4">Manika</h3>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
               Your trusted partner for premium car rental services across Zimbabwe and beyond. 
               From airport transfers to international journeys, we deliver excellence on every trip.

@@ -1,44 +1,34 @@
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { Shield, Clock, Users, MapPin, Phone, Mail, Award, Globe } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Shield, Clock, Users, MapPin, Phone, Mail, Award, Globe, Check, Car, Star, Heart } from 'lucide-react';
+
+const values = [
+  { icon: <Shield size={24} />, title: 'Safety First', desc: 'Your safety is our top priority. All vehicles undergo rigorous maintenance checks.' },
+  { icon: <Clock size={24} />, title: 'Always On Time', desc: 'Punctuality is key. We ensure timely pickups and arrivals every time.' },
+  { icon: <Heart size={24} />, title: 'Customer Care', desc: 'We treat every customer like family, providing personalized service.' },
+  { icon: <Star size={24} />, title: 'Excellence', desc: 'We strive for excellence in every journey, exceeding expectations.' },
+];
 
 function HeroSection() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end start'],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-
   return (
-    <section
-      ref={ref}
-      className="relative min-h-[80vh] overflow-hidden bg-gray-950"
-    >
+    <section className="relative min-h-[70vh] overflow-hidden bg-gray-950">
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-orange/5 via-transparent to-transparent" />
-        <motion.div
-          style={{ y: useTransform(scrollYProgress, [0, 1], [0, -100]) }}
-          className="absolute top-20 left-10 w-96 h-96 bg-brand-orange/10 rounded-full blur-[100px]"
+        <img
+          src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=1600&q=80"
+          alt="Zimbabwe landscape"
+          className="w-full h-full object-cover opacity-30"
         />
-        <motion.div
-          style={{ y: useTransform(scrollYProgress, [0, 1], [0, -150]) }}
-          className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-brand-orange/5 rounded-full blur-[120px]"
-        />
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/80 to-gray-950/60" />
+        <div className="absolute top-20 left-10 w-96 h-96 bg-brand-orange/10 rounded-full blur-[100px]" />
+        <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-brand-orange/5 rounded-full blur-[120px]" />
       </div>
 
-      <motion.div
-        style={{ y, opacity }}
-        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 min-h-[80vh] flex items-center"
-      >
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 min-h-[70vh] flex items-center">
         <div className="text-center w-full">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-block px-4 py-2 bg-gray-800/50 backdrop-blur-xl rounded-full border border-brand-orange/20 text-brand-orange text-sm font-medium mb-6"
+            className="inline-block px-4 py-2 bg-brand-orange/20 backdrop-blur-xl rounded-full border border-brand-orange/40 text-brand-orange text-sm font-medium mb-6"
           >
             About Us
           </motion.span>
@@ -48,19 +38,20 @@ function HeroSection() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="font-heading font-bold text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-6"
           >
-            Your Trusted  <br /> <span className="text-brand-orange">Car Rental</span> Partner
+            Your Trusted <span className="text-brand-orange">Car Rental</span> Partner
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-gray-400 text-xl max-w-3xl mx-auto"
+            className="text-gray-300 text-xl max-w-3xl mx-auto"
           >
-            We are committed to providing premium car rental services across Zimbabwe and beyond. 
-            We deliver excellence on every journey.
+            Providing premium car rental services across Zimbabwe and beyond. 
+            We deliver excellence on every journey with a commitment to safety, 
+            reliability, and customer satisfaction.
           </motion.p>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
@@ -99,6 +90,179 @@ function StatsSection() {
   );
 }
 
+function StorySection() {
+  return (
+    <section className="relative py-24 bg-gray-950">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="text-brand-orange text-sm font-medium uppercase tracking-wider">Our Story</span>
+            <h2 className="font-heading font-bold text-4xl text-white mt-4 mb-6">
+              From Humble Beginnings to <span className="text-brand-orange">Premium Service</span>
+            </h2>
+            <p className="text-gray-400 text-lg mb-6">
+              Manika Car Rental was founded with a simple mission: to provide reliable, 
+              comfortable, and affordable transportation for everyone visiting or living in Zimbabwe.
+            </p>
+            <p className="text-gray-400 mb-8">
+              What started as a small operation in Harare has grown into one of Zimbabwe's most 
+              trusted car rental companies. We take pride in our well-maintained fleet, 
+              professional drivers, and commitment to customer satisfaction.
+            </p>
+            <div className="grid grid-cols-2 gap-4">
+              {['Safety Commitment', 'Professional Drivers', '24/7 Support', 'Best Rates'].map((item, i) => (
+                <div key={i} className="flex items-center gap-2">
+                  <Check size={18} className="text-brand-orange" />
+                  <span className="text-gray-300">{item}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&q=80"
+              alt="Premium vehicles"
+              className="rounded-3xl"
+            />
+            <div className="absolute -bottom-6 -left-6 p-6 bg-gray-900 border border-gray-800 rounded-2xl">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-brand-orange flex items-center justify-center">
+                  <Car size={24} className="text-white" />
+                </div>
+                <div>
+                  <p className="text-white font-bold text-lg">50+</p>
+                  <p className="text-gray-400 text-sm">Premium Vehicles</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ValuesSection() {
+  return (
+    <section className="relative py-24 bg-gray-900/50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <span className="text-brand-orange text-sm font-medium uppercase tracking-wider">Our Values</span>
+          <h2 className="font-heading font-bold text-4xl text-white mt-4">
+            What Drives <span className="text-brand-orange">Us</span>
+          </h2>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {values.map((value, index) => (
+            <motion.div
+              key={value.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="p-6 bg-gray-800/50 rounded-2xl border border-gray-700 text-center hover:border-brand-orange/50 transition-all"
+            >
+              <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-gradient-to-br from-brand-orange to-brand-orange-light flex items-center justify-center text-white">
+                {value.icon}
+              </div>
+              <h3 className="font-heading font-semibold text-xl text-white mb-2">{value.title}</h3>
+              <p className="text-gray-400 text-sm">{value.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FleetShowcase() {
+  return (
+    <section className="relative py-24 bg-gray-900/50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <span className="text-brand-orange text-sm font-medium uppercase tracking-wider">Our Fleet</span>
+          <h2 className="font-heading font-bold text-4xl text-white mt-4">
+            Well-Maintained <span className="text-brand-orange">Vehicles</span>
+          </h2>
+        </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative overflow-hidden rounded-3xl"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1559416523-140ddc3d238c?w=600&q=80"
+              alt="Toyota Quantum"
+              className="w-full h-64 object-cover"
+            />
+            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+              <p className="text-white font-semibold">Toyota Quantum</p>
+              <p className="text-gray-300 text-sm">14 Seater Mini Bus</p>
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="relative overflow-hidden rounded-3xl"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=600&q=80"
+              alt="Standard SUV"
+              className="w-full h-64 object-cover"
+            />
+            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+              <p className="text-white font-semibold">Standard SUV</p>
+              <p className="text-gray-300 text-sm">7 Seater 4x4</p>
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="relative overflow-hidden rounded-3xl"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=80"
+              alt="Executive Sedan"
+              className="w-full h-64 object-cover"
+            />
+            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+              <p className="text-white font-semibold">Executive Sedan</p>
+              <p className="text-gray-300 text-sm">Premium Comfort</p>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function WhyChooseUs() {
   const features = [
     {
@@ -130,7 +294,6 @@ function WhyChooseUs() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
           <h2 className="font-heading font-bold text-4xl text-white">
@@ -166,21 +329,22 @@ function ContactSection() {
     <section className="relative py-24 bg-gray-900/50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="font-heading font-bold text-4xl text-white mb-6">
-          Get In Touch
+          Ready to <span className="text-brand-orange">Get Started</span>?
         </h2>
         <p className="text-gray-400 text-lg mb-8">
-          Have any questions? Our team is ready to help you with all your car rental needs.
+          Contact us today for a free quote or to book your vehicle. 
+          Our team is ready to help you plan the perfect journey.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="tel:+263776254884"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-brand-orange text-white rounded-xl font-medium"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-brand-orange text-white rounded-xl font-bold hover:shadow-lg hover:shadow-brand-orange/30 transition-all"
           >
             <Phone size={20} /> +263 77 625 4884
           </a>
           <a
             href="mailto:sales@manikacarrental.com"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-800 text-white rounded-xl font-medium border border-gray-700"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gray-800 text-white rounded-xl font-medium border border-gray-700 hover:bg-gray-700 transition-colors"
           >
             <Mail size={20} /> sales@manikacarrental.com
           </a>
@@ -195,6 +359,9 @@ export default function About() {
     <>
       <HeroSection />
       <StatsSection />
+      <StorySection />
+      <ValuesSection />
+      <FleetShowcase />
       <WhyChooseUs />
       <ContactSection />
     </>

@@ -272,7 +272,7 @@ export default function FleetDetail() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <div className="relative h-[350px] md:h-[450px] rounded-2xl overflow-hidden mb-4 group">
+                <div className="relative h-[350px] md:h-[450px] rounded-3xl overflow-hidden mb-4 group">
                   <img
                     src={vehicle.images[activeImage]?.url || vehicle.mainImage}
                     alt={vehicle.name}
@@ -287,7 +287,7 @@ export default function FleetDetail() {
                     <button
                       key={i}
                       onClick={() => setActiveImage(i)}
-                      className={`h-20 rounded-lg overflow-hidden border-2 transition-all ${
+                      className={`h-20 rounded-xl overflow-hidden border-2 transition-all ${
                         activeImage === i ? 'border-brand-orange' : 'border-transparent hover:border-gray-600'
                       }`}
                     >
@@ -420,29 +420,6 @@ export default function FleetDetail() {
             </div>
           </div>
         </section>
-
-        {vehicle.advantages && (
-          <section className="py-12">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="font-heading font-bold text-2xl text-white mb-8">Why Choose This Vehicle</h2>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                {vehicle.advantages.map((adv, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.05 }}
-                    className="flex items-start gap-3 p-4 bg-gray-900/50 rounded-xl border border-gray-800"
-                  >
-                    <Check size={20} className="text-green-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-300 text-sm">{adv}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
       </main>
 
       <AnimatePresence>

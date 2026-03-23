@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function Logo({ className = '' }: { className?: string }) {
   return (
-    <Link to="/" className={`flex items-center gap-3 ${className}`}>
+    <Link to="/" className={className}>
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -16,14 +16,6 @@ export default function Logo({ className = '' }: { className?: string }) {
           className="h-full w-auto object-contain"
         />
       </motion.div>
-      <div className="flex flex-col">
-        <span className="font-heading font-bold text-xl text-white leading-none">
-          Manika
-        </span>
-        <span className="font-heading text-xs text-brand-orange tracking-wider uppercase">
-          Car Rental
-        </span>
-      </div>
     </Link>
   );
 }

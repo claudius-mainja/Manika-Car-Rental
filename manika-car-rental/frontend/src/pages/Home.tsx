@@ -31,10 +31,7 @@ function HeroSection() {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
 
   return (
-    <section
-      ref={ref}
-      className="relative min-h-screen overflow-hidden bg-gray-950"
-    >
+    <section ref={ref} className="relative min-h-screen overflow-hidden bg-gray-950">
       <div className="absolute inset-0">
         <img
           src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=1920&q=80"
@@ -157,7 +154,7 @@ function HeroSection() {
               <img
                 src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80"
                 alt="Premium Car Rental"
-                className="relative z-10 w-full h-full object-contain floating"
+                className="relative z-10 w-full h-full object-contain rounded-3xl floating"
               />
             </div>
           </motion.div>
@@ -201,6 +198,117 @@ function StatsSection() {
   );
 }
 
+function TestimonialsSection() {
+  const testimonials = [
+    {
+      name: 'Tawanda M.',
+      location: 'Harare',
+      text: 'Excellent service! The driver was punctual and the vehicle was immaculate. Highly recommended for airport transfers.',
+      service: 'Airport Transfer',
+      rating: 5,
+    },
+    {
+      name: 'Charmaine R.',
+      location: 'Bulawayo',
+      text: 'We used Manika for our safari trip to Hwange. Everything was perfectly organized. The 4WD was in great condition.',
+      service: 'Safari Trip',
+      rating: 5,
+    },
+    {
+      name: 'Blessing T.',
+      location: 'Mutare',
+      text: 'Best car rental experience in Harare. Professional staff, fair prices, and well-maintained vehicles.',
+      service: 'Vehicle Rental',
+      rating: 5,
+    },
+    {
+      name: 'Memory K.',
+      location: 'Victoria Falls',
+      text: 'Used them for our wedding transport. The luxury sedan was stunning and the chauffeur was professional.',
+      service: 'Luxury Rental',
+      rating: 5,
+    },
+    {
+      name: 'James N.',
+      location: 'Masvingo',
+      text: 'Did an international trip to South Africa. The driver was experienced and the vehicle was comfortable for the long drive.',
+      service: 'International Trip',
+      rating: 5,
+    },
+    {
+      name: 'Nyasha D.',
+      location: 'Gweru',
+      text: 'Great outstation service! We traveled to Great Zimbabwe and back. Very reliable and safe journey.',
+      service: 'Outstation Trip',
+      rating: 5,
+    },
+  ];
+
+  return (
+    <section className="relative py-24 bg-gray-950 overflow-hidden">
+      <div className="absolute inset-0 dot-pattern opacity-5" />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <span className="text-brand-orange text-sm font-medium uppercase tracking-wider">
+            Testimonials
+          </span>
+          <h2 className="font-heading font-bold text-4xl text-white mt-4">
+            What Our <span className="text-brand-orange">Clients</span> Say
+          </h2>
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto mt-4">
+            Don&apos;t just take our word for it - hear from our satisfied customers
+          </p>
+        </motion.div>
+
+        <div className="relative overflow-hidden">
+          <motion.div
+            className="flex gap-6"
+            animate={{
+              x: [0, -1920],
+            }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: 'loop',
+                duration: 30,
+                ease: 'linear',
+              },
+            }}
+          >
+            {[...testimonials, ...testimonials].map((testimonial, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-[350px] p-6 bg-gray-900/50 rounded-3xl border border-gray-800"
+              >
+                <div className="flex gap-1 mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} size={16} className="text-brand-orange fill-brand-orange" />
+                  ))}
+                </div>
+                <p className="text-gray-300 mb-4 text-sm">&quot;{testimonial.text}&quot;</p>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-white font-semibold">{testimonial.name}</p>
+                    <p className="text-gray-500 text-sm">{testimonial.location}</p>
+                  </div>
+                  <span className="px-3 py-1 bg-brand-orange/20 rounded-full text-brand-orange text-xs font-medium">
+                    {testimonial.service}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function DestinationsSection() {
   const destinations = [
     { name: 'Victoria Falls', desc: 'World-renowned waterfall', icon: <Mountain size={24} /> },
@@ -210,9 +318,8 @@ function DestinationsSection() {
   ];
 
   return (
-    <section className="relative py-24 bg-gray-950 overflow-hidden">
-      <div className="absolute inset-0 dot-pattern opacity-5" />
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-24 bg-gray-900/50 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -235,7 +342,7 @@ function DestinationsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group relative p-6 bg-gray-900/50 rounded-2xl border border-gray-800 hover:border-brand-orange/50 transition-all cursor-pointer"
+              className="group relative p-6 bg-gray-800/50 rounded-3xl border border-gray-700 hover:border-brand-orange/50 transition-all cursor-pointer"
             >
               <div className="w-12 h-12 rounded-xl bg-brand-orange/20 flex items-center justify-center mb-4 text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-colors">
                 {dest.icon}
@@ -254,7 +361,7 @@ function ServicesSection() {
   const featuredServices = services.slice(0, 4);
 
   return (
-    <section className="relative py-24 bg-gray-900/50 overflow-hidden">
+    <section className="relative py-24 bg-gray-950 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -282,7 +389,7 @@ function ServicesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group p-6 bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-gray-700 hover:border-brand-orange/50 transition-all duration-300 hover:shadow-lg hover:shadow-brand-orange/10"
+              className="group p-6 bg-gray-900/50 rounded-3xl border border-gray-800 hover:border-brand-orange/50 transition-all duration-300"
             >
               <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-brand-orange to-brand-orange-light flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <MapPin size={24} className="text-white" />
@@ -293,6 +400,14 @@ function ServicesSection() {
               <p className="text-gray-400 text-sm mb-4 line-clamp-2">
                 {service.shortDesc}
               </p>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={12} className="text-brand-orange fill-brand-orange" />
+                  ))}
+                </div>
+                <span className="text-gray-500 text-xs">(4.9)</span>
+              </div>
               <Link
                 to="/services"
                 className="text-brand-orange text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all"
@@ -325,7 +440,7 @@ function FleetPreview() {
   const featuredVehicles = vehicles.slice(0, 4);
 
   return (
-    <section className="relative py-24 bg-gray-950 overflow-hidden">
+    <section className="relative py-24 bg-gray-900/50 overflow-hidden">
       <div className="absolute inset-0 dot-pattern opacity-5" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -354,7 +469,7 @@ function FleetPreview() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group bg-gray-900/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-orange/50 transition-all duration-300 hover:shadow-lg hover:shadow-brand-orange/10"
+              className="group bg-gray-900/50 rounded-3xl overflow-hidden border border-gray-800 hover:border-brand-orange/50 transition-all duration-300"
             >
               <div className="relative h-48 overflow-hidden">
                 <img
@@ -419,7 +534,7 @@ function WhyChooseUs() {
   ];
 
   return (
-    <section className="relative py-24 bg-gray-900/50 overflow-hidden">
+    <section className="relative py-24 bg-gray-950 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -461,7 +576,7 @@ function WhyChooseUs() {
             <img
               src="https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&q=80"
               alt="Premium service"
-              className="rounded-2xl"
+              className="rounded-3xl"
             />
             <div className="absolute -bottom-6 -left-6 p-6 bg-gray-900 border border-gray-800 rounded-2xl shadow-xl">
               <div className="flex items-center gap-4">
@@ -483,14 +598,14 @@ function WhyChooseUs() {
 
 function CTASection() {
   return (
-    <section className="relative py-24 bg-gray-950 overflow-hidden">
+    <section className="relative py-24 bg-gray-900/50 overflow-hidden">
       <div className="absolute inset-0">
         <img
           src="https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?w=1600&q=80"
           alt="Zimbabwe road"
           className="w-full h-full object-cover opacity-20"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-950 via-gray-950/90 to-gray-950" />
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/90 to-gray-900" />
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-orange/10 rounded-full blur-[120px]" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-orange/10 rounded-full blur-[120px]" />
       </div>
@@ -539,6 +654,7 @@ export default function Home() {
     <>
       <HeroSection />
       <StatsSection />
+      <TestimonialsSection />
       <DestinationsSection />
       <ServicesSection />
       <FleetPreview />
