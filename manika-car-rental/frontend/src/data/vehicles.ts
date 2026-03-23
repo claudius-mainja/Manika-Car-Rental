@@ -1,7 +1,6 @@
 export interface VehicleImage {
   url: string;
   alt: string;
-  type: "exterior" | "interior" | "detail";
 }
 
 export interface VehicleColor {
@@ -33,12 +32,12 @@ export const vehicles: Vehicle[] = [
     id: "toyota-quantum",
     name: "Toyota Quantum",
     category: "Mini Bus",
-    mainImage: "https://images.unsplash.com/photo-1559416523-140ddc3d238c?w=800&q=80",
+    mainImage: "/images/vehicles/toyota-quantum/images.jfif",
     images: [
-      { url: "https://images.unsplash.com/photo-1559416523-140ddc3d238c?w=800&q=80", alt: "Toyota Quantum Side View", type: "exterior" },
-      { url: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&q=80", alt: "Quantum Interior", type: "interior" },
-      { url: "https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&q=80", alt: "Quantum Rear View", type: "exterior" },
-      { url: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&q=80", alt: "Quantum Top View", type: "exterior" },
+      { url: "/images/vehicles/toyota-quantum/images.jfif", alt: "Toyota Quantum Front View" },
+      { url: "/images/vehicles/toyota-quantum/images (1).jfif", alt: "Toyota Quantum Side View" },
+      { url: "/images/vehicles/toyota-quantum/images (2).jfif", alt: "Toyota Quantum Interior" },
+      { url: "/images/vehicles/toyota-quantum/images (3).jfif", alt: "Toyota Quantum Rear View" },
     ],
     colors: [
       { name: "White", hex: "#FFFFFF" },
@@ -86,12 +85,11 @@ export const vehicles: Vehicle[] = [
     id: "honda-accord",
     name: "Honda Accord",
     category: "Executive Sedan",
-    mainImage: "https://images.unsplash.com/photo-1606611013016-96e59e5e2a53?w=800&q=80",
+    mainImage: "/images/vehicles/honda-accord/images (4).jfif",
     images: [
-      { url: "https://images.unsplash.com/photo-1606611013016-96e59e4e2a53?w=800&q=80", alt: "Honda Accord Front View", type: "exterior" },
-      { url: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80", alt: "Accord Interior", type: "interior" },
-      { url: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80", alt: "Accord Rear View", type: "exterior" },
-      { url: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80", alt: "Accord Side Profile", type: "exterior" },
+      { url: "/images/vehicles/honda-accord/images (4).jfif", alt: "Honda Accord Front View" },
+      { url: "/images/vehicles/honda-accord/images (5).jfif", alt: "Honda Accord Side View" },
+      { url: "/images/vehicles/honda-accord/2VzxJQOYsyt4TYJf_img_7831.jpg", alt: "Honda Accord Interior" },
     ],
     colors: [
       { name: "Black", hex: "#1a1a1a" },
@@ -114,7 +112,6 @@ export const vehicles: Vehicle[] = [
       "Reverse Camera",
       "Keyless Entry",
       "Premium Sound System",
-      "Adaptive Cruise Control",
     ],
     advantages: [
       "Executive-level comfort for business trips",
@@ -139,12 +136,11 @@ export const vehicles: Vehicle[] = [
     id: "mini-suv",
     name: "Mini SUV",
     category: "Mini SUV",
-    mainImage: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800&q=80",
+    mainImage: "/images/vehicles/mini-suv/images.jfif",
     images: [
-      { url: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800&q=80", alt: "Mini SUV Front View", type: "exterior" },
-      { url: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800&q=80", alt: "SUV Interior", type: "interior" },
-      { url: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80", alt: "Mini SUV Side", type: "exterior" },
-      { url: "https://images.unsplash.com/photo-1519408470207-8ca1abc1a9ac?w=800&q=80", alt: "SUV Dashboard", type: "detail" },
+      { url: "/images/vehicles/mini-suv/images.jfif", alt: "Mini SUV Front View" },
+      { url: "/images/vehicles/mini-suv/images (6).jfif", alt: "Mini SUV Side View" },
+      { url: "/images/vehicles/mini-suv/download.jfif", alt: "Mini SUV Rear View" },
     ],
     colors: [
       { name: "White", hex: "#FFFFFF" },
@@ -191,12 +187,11 @@ export const vehicles: Vehicle[] = [
     id: "standard-suv",
     name: "Standard SUV",
     category: "SUV",
-    mainImage: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&q=80",
+    mainImage: "/images/vehicles/standard-suv/download.jfif",
     images: [
-      { url: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&q=80", alt: "Standard SUV Front", type: "exterior" },
-      { url: "https://images.unsplash.com/photo-1517154421773-0529f29ea451?w=800&q=80", alt: "SUV Interior Seating", type: "interior" },
-      { url: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800&q=80", alt: "SUV Rear Quarter", type: "exterior" },
-      { url: "https://images.unsplash.com/photo-1568844293986-8c87f5532c77?w=800&q=80", alt: "SUV Dashboard", type: "detail" },
+      { url: "/images/vehicles/standard-suv/download.jfif", alt: "Standard SUV Front View" },
+      { url: "/images/vehicles/standard-suv/Toyota-Fortuner-Facelift-Indonesia-Front.jpg", alt: "Standard SUV Side View" },
+      { url: "/images/vehicles/standard-suv/45873-1-1024x768.jpg", alt: "Standard SUV Rear View" },
     ],
     colors: [
       { name: "Black", hex: "#1a1a1a" },
@@ -219,7 +214,6 @@ export const vehicles: Vehicle[] = [
       "Tow Bar",
       "Cruise Control",
       "Premium Audio System",
-      "360° Camera",
     ],
     advantages: [
       "Spacious 7-seater for family safaris",
@@ -245,12 +239,10 @@ export const vehicles: Vehicle[] = [
     id: "double-cab",
     name: "Double Cab Pickup",
     category: "Double Cab",
-    mainImage: "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&q=80",
+    mainImage: "/images/vehicles/double-cab/za_ads_134078282_251216_694121f03c098900090c4f0f.webp",
     images: [
-      { url: "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&q=80", alt: "Double Cab Front", type: "exterior" },
-      { url: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80", alt: "Cab Interior", type: "interior" },
-      { url: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80", alt: "Double Cab Side", type: "exterior" },
-      { url: "https://images.unsplash.com/photo-1568844293986-8c87f5532c77?w=800&q=80", alt: "Cargo Bed", type: "detail" },
+      { url: "/images/vehicles/double-cab/za_ads_134078282_251216_694121f03c098900090c4f0f.webp", alt: "Double Cab Front View" },
+      { url: "/images/vehicles/double-cab/2.jpg", alt: "Double Cab Side View" },
     ],
     colors: [
       { name: "White", hex: "#FFFFFF" },
@@ -297,12 +289,11 @@ export const vehicles: Vehicle[] = [
     id: "executive-sedan",
     name: "Executive Sedan",
     category: "Executive Sedan",
-    mainImage: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&q=80",
+    mainImage: "/images/vehicles/executive-sedan/images.jfif",
     images: [
-      { url: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&q=80", alt: "Executive Sedan Front", type: "exterior" },
-      { url: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80", alt: "Executive Interior", type: "interior" },
-      { url: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80", alt: "Executive Side Profile", type: "exterior" },
-      { url: "https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=800&q=80", alt: "Premium Dashboard", type: "detail" },
+      { url: "/images/vehicles/executive-sedan/images.jfif", alt: "Executive Sedan Front View" },
+      { url: "/images/vehicles/executive-sedan/images (1).jfif", alt: "Executive Sedan Side View" },
+      { url: "/images/vehicles/executive-sedan/download.jfif", alt: "Executive Sedan Interior" },
     ],
     colors: [
       { name: "Black", hex: "#0a0a0a" },
@@ -349,12 +340,10 @@ export const vehicles: Vehicle[] = [
     id: "mini-bus",
     name: "Mini Bus",
     category: "Mini Bus",
-    mainImage: "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=800&q=80",
+    mainImage: "/images/vehicles/mini-bus/c2726e6984f1189b287f36bee05c8ab2.webp",
     images: [
-      { url: "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=800&q=80", alt: "Mini Bus Side View", type: "exterior" },
-      { url: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&q=80", alt: "Bus Interior Seating", type: "interior" },
-      { url: "https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&q=80", alt: "Mini Bus Rear", type: "exterior" },
-      { url: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&q=80", alt: "Bus Overview", type: "exterior" },
+      { url: "/images/vehicles/mini-bus/c2726e6984f1189b287f36bee05c8ab2.webp", alt: "Mini Bus Side View" },
+      { url: "/images/vehicles/mini-bus/c2726e6984f1189b287f36bee05c8ab2(1).webp", alt: "Mini Bus Front View" },
     ],
     colors: [
       { name: "White", hex: "#FFFFFF" },
@@ -401,12 +390,11 @@ export const vehicles: Vehicle[] = [
     id: "standard-sedan",
     name: "Standard Sedan",
     category: "Sedan",
-    mainImage: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80",
+    mainImage: "/images/vehicles/standard-sedan/images (4).jfif",
     images: [
-      { url: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80", alt: "Standard Sedan Front", type: "exterior" },
-      { url: "https://images.unsplash.com/photo-1502877338535-766e1452684a?w=800&q=80", alt: "Sedan Interior", type: "interior" },
-      { url: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80", alt: "Sedan Side View", type: "exterior" },
-      { url: "https://images.unsplash.com/photo-1493238792000-8113da705763?w=800&q=80", alt: "Sedan Dashboard", type: "detail" },
+      { url: "/images/vehicles/standard-sedan/images (4).jfif", alt: "Standard Sedan Front View" },
+      { url: "/images/vehicles/standard-sedan/images (5).jfif", alt: "Standard Sedan Side View" },
+      { url: "/images/vehicles/standard-sedan/2VzxJQOYsyt4TYJf_img_7831.jpg", alt: "Standard Sedan Interior" },
     ],
     colors: [
       { name: "White", hex: "#FFFFFF" },
