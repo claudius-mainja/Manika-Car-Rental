@@ -214,7 +214,7 @@ function FleetShowcase() {
             className="relative overflow-hidden rounded-3xl"
           >
             <img
-              src="/images/hero/images (2).jfif"
+              src="/images/vehicles/toyota-quantum/96416679_3001533143264806_4838638313755639808_n.jpg"
               alt="Toyota Quantum"
               className="w-full h-64 object-cover"
             />
@@ -231,7 +231,7 @@ function FleetShowcase() {
             className="relative overflow-hidden rounded-3xl"
           >
             <img
-              src="/images/hero/images (3).jfif"
+              src="/images/vehicles/standard-suv/Toyota-Fortuner-Facelift-Indonesia-Front.jpg"
               alt="Standard SUV"
               className="w-full h-64 object-cover"
             />
@@ -248,7 +248,7 @@ function FleetShowcase() {
             className="relative overflow-hidden rounded-3xl"
           >
             <img
-              src="/images/hero/download (1).jfif"
+              src="/images/vehicles/executive-sedan/images.jfif"
               alt="Executive Sedan"
               className="w-full h-64 object-cover"
             />
