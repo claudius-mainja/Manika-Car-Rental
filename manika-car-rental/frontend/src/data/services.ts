@@ -16,7 +16,7 @@ export const services: Service[] = [
     icon: "Car",
     shortDesc: "Premium vehicles for every occasion",
     description:
-      "Choose from our diverse fleet of well-maintained vehicles for any occasion. Whether you need a compact sedan for city driving or a spacious SUV for a family adventure, we have the perfect car waiting for you.",
+      "Choose from our diverse fleet of well-maintained vehicles for any occasion. Whether you need a compact sedan for Harare city or a spacious SUV for a family adventure, we have the perfect car waiting for you.",
     features: [
       "Wide range of premium vehicles",
       "Flexible rental periods - daily to monthly",
@@ -25,13 +25,13 @@ export const services: Service[] = [
       "Well-maintained, clean fleet",
     ],
     requiresPickupDropoff: false,
-    image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80",
   },
   {
     id: "outstation-trips",
     name: "Outstation Trips",
     icon: "MapPin",
-    shortDesc: "Explore beyond the city limits",
+    shortDesc: "Explore beyond Harare",
     description:
       "Planning a trip outside the city? Our outstation packages include well-equipped vehicles with experienced drivers who know Zimbabwe's roads inside out. Travel to Bulawayo, Victoria Falls, Masvingo, Mutare, and beyond with comfort and safety.",
     features: [
@@ -48,13 +48,13 @@ export const services: Service[] = [
     id: "international-trips",
     name: "International Long Trips",
     icon: "Globe",
-    shortDesc: "Cross-border journeys with professional drivers",
+    shortDesc: "Cross-border journeys",
     description:
-      "Experience seamless international travel with our professional drivers. We offer long-trip services to destinations across Southern Africa including South Africa, Botswana, Zambia, Mozambique, Tanzania, and more. Travel in comfort and safety across borders.",
+      "Experience seamless international travel with our professional drivers. We offer long-trip services to destinations across Southern Africa including South Africa, Botswana, Zambia, Mozambique, Tanzania, and more.",
     features: [
       "Cross-border expertise (SA, Botswana, Zambia, Mozambique)",
-      "Professional, licensed drivers with international experience",
-      "Customized itineraries for long-distance travel",
+      "Professional, licensed drivers",
+      "Customized itineraries",
       "Comfortable vehicles for extended journeys",
       "Border crossing assistance included",
       "Flexible routing and stops",
@@ -66,16 +66,16 @@ export const services: Service[] = [
     id: "international-drivers",
     name: "International Driver Assignment",
     icon: "UserPlus",
-    shortDesc: "Professional drivers for your own vehicle",
+    shortDesc: "Professional drivers for your vehicle",
     description:
-      "Have your own car but need a professional driver? We provide experienced, licensed drivers who can accompany you on international journeys. Perfect for those who own premium vehicles and want expert navigation across borders without the stress of driving.",
+      "Have your own car but need a professional driver? We provide experienced, licensed drivers who can accompany you on international journeys across borders.",
     features: [
       "Licensed professional drivers",
       "Experience with cross-border routes",
       "Knowledge of multiple road conditions",
       "Route planning and navigation",
       "Flexible hours and scheduling",
-      "Available for short and long-term assignments",
+      "Available for short and long-term",
     ],
     requiresPickupDropoff: false,
     image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&q=80",
@@ -84,9 +84,9 @@ export const services: Service[] = [
     id: "airport-transfers",
     name: "Airport Pickup & Drop Off",
     icon: "Plane",
-    shortDesc: "Seamless airport transfers, 24/7",
+    shortDesc: "R.G. Mugabe Airport transfers",
     description:
-      "Start or end your journey stress-free with our reliable airport transfer service. Our drivers monitor flight schedules and ensure timely pickup and drop off at Robert Gabriel Mugabe International Airport. Meet and greet service included.",
+      "Start or end your journey stress-free with our reliable airport transfer service. Our drivers monitor flight schedules and ensure timely pickup and drop off at R.G. Mugabe International Airport.",
     features: [
       "Flight tracking & monitoring",
       "Meet and greet service at arrivals",
@@ -104,7 +104,7 @@ export const services: Service[] = [
     icon: "Key",
     shortDesc: "Drive yourself, your freedom",
     description:
-      "Experience the freedom of driving yourself. Our self-drive rental service provides you with a well-maintained vehicle — just you and the open road. No driver, no restrictions, pure independence to explore Zimbabwe at your own pace.",
+      "Experience the freedom of driving yourself. Our self-drive rental service provides you with a well-maintained vehicle — just you and the open road. Explore Zimbabwe at your own pace.",
     features: [
       "No driver included - complete freedom",
       "Unlimited mileage on all rentals",
@@ -114,7 +114,7 @@ export const services: Service[] = [
       "Quick pickup and drop-off",
     ],
     requiresPickupDropoff: false,
-    image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80",
   },
   {
     id: "chauffeur-service",
@@ -122,7 +122,7 @@ export const services: Service[] = [
     icon: "UserCheck",
     shortDesc: "Professional driver at your service",
     description:
-      "Sit back, relax, and let our professional chauffeurs handle the driving. Our chauffeur service provides experienced, well-presented drivers who ensure a safe, comfortable, and punctual journey. Perfect for business, events, or everyday luxury.",
+      "Sit back, relax, and let our professional chauffeurs handle the driving. Our chauffeur service provides experienced drivers who ensure a safe, comfortable, and punctual journey.",
     features: [
       "Professional, uniformed drivers",
       "Impeccably presented vehicles",
@@ -138,9 +138,9 @@ export const services: Service[] = [
     id: "safari-trips",
     name: "Safari Trips Booking",
     icon: "Compass",
-    shortDesc: "Adventure awaits in Zimbabwe's wild",
+    shortDesc: "Adventure in Zimbabwe's wild",
     description:
-      "Discover the incredible wildlife of Zimbabwe with our safari trip service. We arrange complete safari packages including transport to Hwange, Mana Pools, Gonarezhou, Matobo Hills, and other world-renowned parks. Your adventure starts here.",
+      "Discover the incredible wildlife of Zimbabwe with our safari trip service. We arrange complete safari packages including transport to Hwange, Mana Pools, Gonarezhou, and other world-renowned parks.",
     features: [
       "Safari-ready 4x4 vehicles",
       "Knowledgeable driver-guides",
@@ -158,7 +158,7 @@ export const services: Service[] = [
     icon: "Briefcase",
     shortDesc: "Corporate transport excellence",
     description:
-      "Impress your clients and partners with our premium business trip service. We provide executive vehicles and professional service tailored for corporate needs — meetings, conferences, roadshows, team building, and executive travel.",
+      "Impress your clients and partners with our premium business trip service. We provide executive vehicles and professional service tailored for corporate needs in Harare and beyond.",
     features: [
       "Executive vehicle fleet",
       "Corporate billing available",
@@ -176,7 +176,7 @@ export const services: Service[] = [
     icon: "Crown",
     shortDesc: "Arrive in ultimate style",
     description:
-      "Make a statement with our luxury car rental service. From high-end sedans to premium SUVs, experience the finest automobiles for weddings, galas, VIP events, anniversaries, and any occasion that demands excellence and sophistication.",
+      "Make a statement with our luxury car rental service. From high-end sedans to premium SUVs, experience the finest automobiles for weddings, galas, VIP events, and any occasion.",
     features: [
       "Premium luxury vehicles",
       "Red carpet presentation service",

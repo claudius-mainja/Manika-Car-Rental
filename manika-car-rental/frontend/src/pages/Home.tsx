@@ -10,6 +10,11 @@ import {
   Phone,
   ArrowRight,
   ChevronRight,
+  Check,
+  Plane,
+  Palmtree,
+  Building2,
+  Mountain,
 } from 'lucide-react';
 import { vehicles } from '../data/vehicles';
 import { services } from '../data/services';
@@ -31,7 +36,13 @@ function HeroSection() {
       className="relative min-h-screen overflow-hidden bg-gray-950"
     >
       <div className="absolute inset-0">
-        <div className="absolute inset-0 dot-pattern opacity-20" />
+        <img
+          src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=1920&q=80"
+          alt="Zimbabwe landscape"
+          className="w-full h-full object-cover opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-950 via-gray-950/90 to-gray-950/70" />
+        <div className="absolute inset-0 dot-pattern opacity-10" />
         <motion.div
           style={{ y: useTransform(scrollYProgress, [0, 1], [0, -100]) }}
           className="absolute top-20 left-10 w-96 h-96 bg-brand-orange/10 rounded-full blur-[120px]"
@@ -84,7 +95,7 @@ function HeroSection() {
               className="text-gray-400 text-lg md:text-xl leading-relaxed mb-8 max-w-xl"
             >
               Experience premium car rental services across Zimbabwe and beyond. 
-              From airport transfers to international journeys, we deliver comfort, 
+              From airport transfers to Victoria Falls adventures, we deliver comfort, 
               reliability, and excellence on every trip.
             </motion.p>
 
@@ -144,7 +155,7 @@ function HeroSection() {
             <div className="relative w-full aspect-square max-w-lg mx-auto">
               <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent rounded-full blur-3xl" />
               <img
-                src="https://images.unsplash.com/photo-1559416523-140ddc3d238c?w=800&q=80"
+                src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80"
                 alt="Premium Car Rental"
                 className="relative z-10 w-full h-full object-contain floating"
               />
@@ -156,12 +167,94 @@ function HeroSection() {
   );
 }
 
+function StatsSection() {
+  const stats = [
+    { value: '500+', label: 'Happy Clients', icon: <Users size={24} /> },
+    { value: '50+', label: 'Destinations', icon: <MapPin size={24} /> },
+    { value: '100%', label: 'Insured Fleet', icon: <Shield size={24} /> },
+    { value: '24/7', label: 'Support', icon: <Clock size={24} /> },
+  ];
+
+  return (
+    <section className="relative py-16 bg-gray-900/50 border-y border-gray-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          {stats.map((stat, index) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="text-center"
+            >
+              <div className="w-14 h-14 mx-auto mb-3 rounded-xl bg-gradient-to-br from-brand-orange to-brand-orange-light flex items-center justify-center text-white">
+                {stat.icon}
+              </div>
+              <div className="font-heading font-bold text-3xl text-white">{stat.value}</div>
+              <div className="text-gray-400 text-sm">{stat.label}</div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function DestinationsSection() {
+  const destinations = [
+    { name: 'Victoria Falls', desc: 'World-renowned waterfall', icon: <Mountain size={24} /> },
+    { name: 'Hwange National Park', desc: 'Premier safari destination', icon: <Palmtree size={24} /> },
+    { name: 'R.G. Mugabe Airport', desc: 'Harare International', icon: <Plane size={24} /> },
+    { name: 'Great Zimbabwe', desc: 'Ancient stone ruins', icon: <Building2 size={24} /> },
+  ];
+
+  return (
+    <section className="relative py-24 bg-gray-950 overflow-hidden">
+      <div className="absolute inset-0 dot-pattern opacity-5" />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <span className="text-brand-orange text-sm font-medium uppercase tracking-wider">
+            Popular Destinations
+          </span>
+          <h2 className="font-heading font-bold text-4xl text-white mt-4">
+            Explore <span className="text-brand-orange">Zimbabwe</span>
+          </h2>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {destinations.map((dest, index) => (
+            <motion.div
+              key={dest.name}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="group relative p-6 bg-gray-900/50 rounded-2xl border border-gray-800 hover:border-brand-orange/50 transition-all cursor-pointer"
+            >
+              <div className="w-12 h-12 rounded-xl bg-brand-orange/20 flex items-center justify-center mb-4 text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-colors">
+                {dest.icon}
+              </div>
+              <h3 className="font-heading font-semibold text-lg text-white mb-1">{dest.name}</h3>
+              <p className="text-gray-400 text-sm">{dest.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ServicesSection() {
   const featuredServices = services.slice(0, 4);
 
   return (
-    <section className="relative py-24 bg-gray-950 overflow-hidden">
-      <div className="absolute inset-0 dot-pattern opacity-10" />
+    <section className="relative py-24 bg-gray-900/50 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -189,7 +282,7 @@ function ServicesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group p-6 bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-800 hover:border-brand-orange/50 transition-all duration-300 hover:shadow-lg hover:shadow-brand-orange/10"
+              className="group p-6 bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-gray-700 hover:border-brand-orange/50 transition-all duration-300 hover:shadow-lg hover:shadow-brand-orange/10"
             >
               <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-brand-orange to-brand-orange-light flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <MapPin size={24} className="text-white" />
@@ -209,6 +302,20 @@ function ServicesSection() {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mt-12"
+        >
+          <Link
+            to="/services"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gray-800 text-white rounded-xl font-medium border border-gray-700 hover:bg-gray-700 hover:border-brand-orange/50 transition-all"
+          >
+            View All Services <ArrowRight size={20} />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
@@ -218,7 +325,8 @@ function FleetPreview() {
   const featuredVehicles = vehicles.slice(0, 4);
 
   return (
-    <section className="relative py-24 bg-gray-900/50 overflow-hidden">
+    <section className="relative py-24 bg-gray-950 overflow-hidden">
+      <div className="absolute inset-0 dot-pattern opacity-5" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -246,7 +354,7 @@ function FleetPreview() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700 hover:border-brand-orange/50 transition-all duration-300 hover:shadow-lg hover:shadow-brand-orange/10"
+              className="group bg-gray-900/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-orange/50 transition-all duration-300 hover:shadow-lg hover:shadow-brand-orange/10"
             >
               <div className="relative h-48 overflow-hidden">
                 <img
@@ -300,10 +408,89 @@ function FleetPreview() {
   );
 }
 
+function WhyChooseUs() {
+  const reasons = [
+    'Premium, well-maintained vehicles',
+    'Professional, licensed drivers',
+    '24/7 customer support',
+    'Competitive pricing',
+    'Flexible rental periods',
+    'Comprehensive insurance',
+  ];
+
+  return (
+    <section className="relative py-24 bg-gray-900/50 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="text-brand-orange text-sm font-medium uppercase tracking-wider">
+              Why Choose Us
+            </span>
+            <h2 className="font-heading font-bold text-4xl text-white mt-4 mb-6">
+              Experience the <span className="text-brand-orange">Manika</span> Difference
+            </h2>
+            <p className="text-gray-400 text-lg mb-8">
+              We go beyond just renting cars. We provide a complete premium experience that ensures your journey is comfortable, safe, and memorable.
+            </p>
+            <div className="grid grid-cols-2 gap-3">
+              {reasons.map((reason, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                  className="flex items-center gap-2 text-gray-300"
+                >
+                  <Check size={18} className="text-brand-orange flex-shrink-0" />
+                  <span className="text-sm">{reason}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&q=80"
+              alt="Premium service"
+              className="rounded-2xl"
+            />
+            <div className="absolute -bottom-6 -left-6 p-6 bg-gray-900 border border-gray-800 rounded-2xl shadow-xl">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-brand-orange/20 flex items-center justify-center">
+                  <Phone size={24} className="text-brand-orange" />
+                </div>
+                <div>
+                  <p className="text-gray-400 text-sm">Call Us Now</p>
+                  <p className="text-white font-bold text-lg">+263 77 625 4884</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function CTASection() {
   return (
     <section className="relative py-24 bg-gray-950 overflow-hidden">
       <div className="absolute inset-0">
+        <img
+          src="https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?w=1600&q=80"
+          alt="Zimbabwe road"
+          className="w-full h-full object-cover opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-950 via-gray-950/90 to-gray-950" />
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-orange/10 rounded-full blur-[120px]" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-orange/10 rounded-full blur-[120px]" />
       </div>
@@ -317,7 +504,7 @@ function CTASection() {
           <h2 className="font-heading font-bold text-4xl md:text-5xl text-white mb-6">
             Ready to Start Your <span className="text-brand-orange">Journey</span>?
           </h2>
-          <p className="text-gray-400 text-lg mb-8">
+          <p className="text-gray-300 text-lg mb-8">
             Contact us today for a free quote or book your vehicle directly. Our team is available 24/7 to assist you.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -325,7 +512,7 @@ function CTASection() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-gradient-to-r from-brand-orange to-brand-orange-light text-white font-heading font-bold rounded-2xl shadow-lg shadow-brand-orange/30 flex items-center gap-3 text-lg"
+                className="px-8 py-4 bg-gradient-to-r from-brand-orange to-brand-orange-light text-white font-heading font-bold rounded-2xl shadow-lg shadow-brand-orange/30 flex items-center gap-3 text-lg mx-auto"
               >
                 Book Now <ArrowRight size={20} />
               </motion.button>
@@ -334,7 +521,7 @@ function CTASection() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-gray-800 text-white font-heading font-semibold rounded-2xl border border-gray-700 hover:bg-gray-700 transition-colors flex items-center gap-3 text-lg"
+                className="px-8 py-4 bg-gray-800 text-white font-heading font-semibold rounded-2xl border border-gray-700 hover:bg-gray-700 transition-colors flex items-center gap-3 text-lg mx-auto"
               >
                 <Phone size={20} className="text-brand-orange" />
                 Call Us Now
@@ -351,8 +538,11 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <StatsSection />
+      <DestinationsSection />
       <ServicesSection />
       <FleetPreview />
+      <WhyChooseUs />
       <CTASection />
     </>
   );

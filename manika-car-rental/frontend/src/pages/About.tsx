@@ -48,7 +48,7 @@ function HeroSection() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="font-heading font-bold text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-6"
           >
-            Your Trusted <span className="text-brand-orange">Car Rental</span> Partner
+            Your Trusted  <br /> <span className="text-brand-orange">Car Rental</span> Partner
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
@@ -56,7 +56,7 @@ function HeroSection() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-gray-400 text-xl max-w-3xl mx-auto"
           >
-            Providing premium car rental services across Zimbabwe and beyond for over 10 years. 
+            We are committed to providing premium car rental services across Zimbabwe and beyond. 
             We deliver excellence on every journey.
           </motion.p>
         </div>
@@ -67,10 +67,10 @@ function HeroSection() {
 
 function StatsSection() {
   const stats = [
-    { icon: <Users size={24} />, value: '10+', label: 'Years Experience' },
     { icon: <Award size={24} />, value: '500+', label: 'Happy Clients' },
     { icon: <Globe size={24} />, value: '50+', label: 'Destinations' },
     { icon: <Shield size={24} />, value: '100%', label: 'Insured Fleet' },
+    { icon: <Users size={24} />, value: '24/7', label: 'Customer Support' },
   ];
 
   return (
@@ -134,7 +134,7 @@ function WhyChooseUs() {
           className="text-center mb-16"
         >
           <h2 className="font-heading font-bold text-4xl text-white">
-            Why Choose <span className="text-brand-orange">Manika Car Rental</span>
+            Why Choose <span className="text-brand-orange">Us</span>
           </h2>
         </motion.div>
 
@@ -169,7 +169,7 @@ function ContactSection() {
           Get In Touch
         </h2>
         <p className="text-gray-400 text-lg mb-8">
-          Have questions? Our team is ready to help you with all your car rental needs.
+          Have any questions? Our team is ready to help you with all your car rental needs.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a

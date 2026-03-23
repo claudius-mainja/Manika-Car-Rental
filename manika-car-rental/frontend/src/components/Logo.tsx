@@ -5,12 +5,16 @@ export default function Logo({ className = '' }: { className?: string }) {
   return (
     <Link to="/" className={`flex items-center gap-3 ${className}`}>
       <motion.div
-        initial={{ rotate: 0 }}
-        animate={{ rotate: 360 }}
-        transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-        className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-orange to-brand-orange-light flex items-center justify-center shadow-lg shadow-brand-orange/30"
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="h-14 w-auto overflow-hidden"
       >
-        <span className="text-white font-heading font-bold text-xl">M</span>
+        <img
+          src="/logo.jpeg"
+          alt="Manika Car Rental Logo"
+          className="h-full w-auto object-contain"
+        />
       </motion.div>
       <div className="flex flex-col">
         <span className="font-heading font-bold text-xl text-white leading-none">
