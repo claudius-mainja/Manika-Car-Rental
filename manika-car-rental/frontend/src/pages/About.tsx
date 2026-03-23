@@ -13,7 +13,7 @@ function HeroSection() {
     <section className="relative min-h-[70vh] overflow-hidden bg-gray-950">
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=1600&q=80"
+          src="/images/hero/images.jfif"
           alt="Zimbabwe landscape"
           className="w-full h-full object-cover opacity-30"
         />
@@ -129,9 +129,9 @@ function StorySection() {
             className="relative"
           >
             <img
-              src="https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&q=80"
+              src="/images/hero/c2726e6984f1189b287f36bee05c8ab2.webp"
               alt="Premium vehicles"
-              className="rounded-3xl"
+              className="rounded-3xl w-full h-80 object-cover"
             />
             <div className="absolute -bottom-6 -left-6 p-6 bg-gray-900 border border-gray-800 rounded-2xl">
               <div className="flex items-center gap-4">
@@ -214,7 +214,7 @@ function FleetShowcase() {
             className="relative overflow-hidden rounded-3xl"
           >
             <img
-              src="https://images.unsplash.com/photo-1559416523-140ddc3d238c?w=600&q=80"
+              src="/images/hero/images (2).jfif"
               alt="Toyota Quantum"
               className="w-full h-64 object-cover"
             />
@@ -231,7 +231,7 @@ function FleetShowcase() {
             className="relative overflow-hidden rounded-3xl"
           >
             <img
-              src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=600&q=80"
+              src="/images/hero/images (3).jfif"
               alt="Standard SUV"
               className="w-full h-64 object-cover"
             />
@@ -248,7 +248,7 @@ function FleetShowcase() {
             className="relative overflow-hidden rounded-3xl"
           >
             <img
-              src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=80"
+              src="/images/hero/download (1).jfif"
               alt="Executive Sedan"
               className="w-full h-64 object-cover"
             />

@@ -25,7 +25,7 @@ export const services: Service[] = [
       "Well-maintained, clean fleet",
     ],
     requiresPickupDropoff: false,
-    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80",
+    image: "/images/hero/images.jfif",
   },
   {
     id: "outstation-trips",
@@ -42,7 +42,7 @@ export const services: Service[] = [
       "Luggage space for all your needs",
     ],
     requiresPickupDropoff: false,
-    image: "https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?w=800&q=80",
+    image: "/images/hero/images (2).jfif",
   },
   {
     id: "international-trips",
@@ -60,7 +60,7 @@ export const services: Service[] = [
       "Flexible routing and stops",
     ],
     requiresPickupDropoff: false,
-    image: "https://images.unsplash.com/photo-1488085061387-422e29b40080?w=800&q=80",
+    image: "/images/hero/images (3).jfif",
   },
   {
     id: "international-drivers",
@@ -78,7 +78,7 @@ export const services: Service[] = [
       "Available for short and long-term",
     ],
     requiresPickupDropoff: false,
-    image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&q=80",
+    image: "/images/hero/download (1).jfif",
   },
   {
     id: "airport-transfers",
@@ -96,7 +96,7 @@ export const services: Service[] = [
       "Instant booking confirmation",
     ],
     requiresPickupDropoff: true,
-    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80",
+    image: "/images/hero/96541192_3001514956599958_7128221362765692928_n.jpg",
   },
   {
     id: "self-drive",
@@ -114,7 +114,7 @@ export const services: Service[] = [
       "Quick pickup and drop-off",
     ],
     requiresPickupDropoff: false,
-    image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80",
+    image: "/images/hero/c2726e6984f1189b287f36bee05c8ab2.webp",
   },
   {
     id: "chauffeur-service",
@@ -132,7 +132,7 @@ export const services: Service[] = [
       "Privacy and discretion guaranteed",
     ],
     requiresPickupDropoff: true,
-    image: "https://images.unsplash.com/photo-1560840067-ddcaeb7831d2?w=800&q=80",
+    image: "/images/hero/images.jfif",
   },
   {
     id: "safari-trips",
@@ -150,7 +150,7 @@ export const services: Service[] = [
       "Customized safari itineraries",
     ],
     requiresPickupDropoff: false,
-    image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=80",
+    image: "/images/hero/images (2).jfif",
   },
   {
     id: "business-trips",
@@ -168,7 +168,7 @@ export const services: Service[] = [
       "Punctuality guaranteed",
     ],
     requiresPickupDropoff: false,
-    image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&q=80",
+    image: "/images/hero/images (3).jfif",
   },
   {
     id: "luxury-rentals",
@@ -186,6 +186,6 @@ export const services: Service[] = [
       "Premium sound system available",
     ],
     requiresPickupDropoff: true,
-    image: "https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&q=80",
+    image: "/images/hero/download (1).jfif",
   },
 ];

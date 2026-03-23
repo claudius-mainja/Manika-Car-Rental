@@ -1,6 +1,6 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import {
   MapPin,
   Users,
@@ -9,17 +9,27 @@ import {
   Star,
   Phone,
   ArrowRight,
-  ChevronRight,
   Check,
-  Plane,
-  Palmtree,
-  Building2,
+  ChevronRight,
   Mountain,
+  Palmtree,
+  Plane,
+  Building2,
 } from 'lucide-react';
 import { vehicles } from '../data/vehicles';
 import { services } from '../data/services';
 
+const heroImages = [
+  '/images/hero/images.jfif',
+  '/images/hero/c2726e6984f1189b287f36bee05c8ab2.webp',
+  '/images/hero/images (2).jfif',
+  '/images/hero/images (3).jfif',
+  '/images/hero/download (1).jfif',
+  '/images/hero/96541192_3001514956599958_7128221362765692928_n.jpg',
+];
+
 function HeroSection() {
+  const [currentImage, setCurrentImage] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -28,35 +38,79 @@ function HeroSection() {
 
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % heroImages.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section ref={ref} className="relative min-h-screen overflow-hidden bg-gray-950">
       <div className="absolute inset-0">
-        <img
-          src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=1920&q=80"
-          alt="Zimbabwe landscape"
-          className="w-full h-full object-cover opacity-20"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-950 via-gray-950/90 to-gray-950/70" />
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentImage}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 1.5, ease: 'easeInOut' }}
+            className="absolute inset-0"
+          >
+            <img
+              src={heroImages[currentImage]}
+              alt={`Fleet vehicle ${currentImage + 1}`}
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+        </AnimatePresence>
+        
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-950 via-gray-950/95 to-gray-950/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-gray-950/50" />
+        
         <div className="absolute inset-0 dot-pattern opacity-10" />
+        
         <motion.div
-          style={{ y: useTransform(scrollYProgress, [0, 1], [0, -100]) }}
-          className="absolute top-20 left-10 w-96 h-96 bg-brand-orange/10 rounded-full blur-[120px]"
+          animate={{ 
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute top-20 left-10 w-96 h-96 bg-brand-orange/20 rounded-full blur-[120px]"
         />
         <motion.div
-          style={{ y: useTransform(scrollYProgress, [0, 1], [0, -150]) }}
-          className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-brand-orange/5 rounded-full blur-[150px]"
+          animate={{ 
+            scale: [1, 1.2, 1],
+            opacity: [0.2, 0.4, 0.2]
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+          className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-brand-orange/10 rounded-full blur-[150px]"
         />
+        
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-brand-orange/5 rounded-full"
         />
+
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
+          {heroImages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentImage(index)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                index === currentImage 
+                  ? 'bg-brand-orange w-8' 
+                  : 'bg-gray-500/50 hover:bg-gray-400'
+              }`}
+            />
+          ))}
+        </div>
       </div>
 
       <motion.div
-        style={{ y, opacity, scale }}
+        style={{ y, opacity }}
         className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 min-h-screen flex items-center"
       >
         <div className="grid lg:grid-cols-2 gap-16 items-center w-full">
@@ -89,7 +143,7 @@ function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-gray-400 text-lg md:text-xl leading-relaxed mb-8 max-w-xl"
+              className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8 max-w-xl"
             >
               Experience premium car rental services across Zimbabwe and beyond. 
               From airport transfers to Victoria Falls adventures, we deliver comfort, 
@@ -135,7 +189,7 @@ function HeroSection() {
                 { icon: <Clock size={18} />, text: '24/7 Support' },
                 { icon: <Star size={18} />, text: 'Premium Fleet' },
               ].map((badge) => (
-                <div key={badge.text} className="flex items-center gap-2 text-gray-400 text-sm">
+                <div key={badge.text} className="flex items-center gap-2 text-gray-300 text-sm">
                   <span className="text-brand-orange">{badge.icon}</span>
                   {badge.text}
                 </div>
@@ -149,13 +203,63 @@ function HeroSection() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative hidden lg:block"
           >
-            <div className="relative w-full aspect-square max-w-lg mx-auto">
+            <div className="relative w-full max-w-lg mx-auto">
               <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent rounded-full blur-3xl" />
-              <img
-                src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80"
-                alt="Premium Car Rental"
-                className="relative z-10 w-full h-full object-contain rounded-3xl floating"
-              />
+              
+              <div className="relative overflow-hidden rounded-3xl border-2 border-brand-orange/20 shadow-2xl shadow-brand-orange/10">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={currentImage}
+                    src={heroImages[currentImage]}
+                    alt="Featured vehicle"
+                    initial={{ opacity: 0, scale: 1.1 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 1 }}
+                    className="w-full aspect-[4/3] object-cover"
+                  />
+                </AnimatePresence>
+                
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-transparent to-transparent" />
+                
+                <div className="absolute bottom-4 left-4 right-4">
+                  <motion.div
+                    key={currentImage}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                    className="bg-gray-900/80 backdrop-blur-sm rounded-xl p-3 border border-gray-700"
+                  >
+                    <p className="text-white font-medium text-sm">
+                      {currentImage === 0 && "Toyota Quantum - 14 Seater"}
+                      {currentImage === 1 && "Safari Ready SUV"}
+                      {currentImage === 2 && "Premium Sedan Fleet"}
+                      {currentImage === 3 && "Luxury Vehicles"}
+                      {currentImage === 4 && "Executive Transport"}
+                      {currentImage === 5 && "Group Travel Solutions"}
+                    </p>
+                  </motion.div>
+                </div>
+              </div>
+              
+              <motion.div
+                animate={{ 
+                  y: [0, -10, 0],
+                }}
+                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                className="absolute -top-4 -right-4 w-20 h-20"
+              >
+                <div className="w-full h-full bg-brand-orange/20 rounded-full blur-xl" />
+              </motion.div>
+              <motion.div
+                animate={{ 
+                  y: [0, 10, 0],
+                }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+                className="absolute -bottom-4 -left-4 w-16 h-16"
+              >
+                <div className="w-full h-full bg-brand-orange/30 rounded-full blur-lg" />
+              </motion.div>
             </div>
           </motion.div>
         </div>
@@ -574,9 +678,9 @@ function WhyChooseUs() {
             className="relative"
           >
             <img
-              src="https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&q=80"
+              src="/images/hero/c2726e6984f1189b287f36bee05c8ab2.webp"
               alt="Premium service"
-              className="rounded-3xl"
+              className="rounded-3xl w-full h-80 object-cover"
             />
             <div className="absolute -bottom-6 -left-6 p-6 bg-gray-900 border border-gray-800 rounded-2xl shadow-xl">
               <div className="flex items-center gap-4">
@@ -601,7 +705,7 @@ function CTASection() {
     <section className="relative py-24 bg-gray-900/50 overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?w=1600&q=80"
+          src="/images/hero/images (2).jfif"
           alt="Zimbabwe road"
           className="w-full h-full object-cover opacity-20"
         />

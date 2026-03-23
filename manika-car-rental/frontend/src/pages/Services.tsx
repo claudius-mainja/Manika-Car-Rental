@@ -8,7 +8,7 @@ function HeroSection() {
     <section className="relative min-h-[70vh] overflow-hidden bg-gray-950">
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=1600&q=80"
+          src="/images/hero/images.jfif"
           alt="Zimbabwe landscape"
           className="w-full h-full object-cover opacity-30"
         />
@@ -696,7 +696,7 @@ function CTASection() {
     <section className="relative py-24 bg-gray-900/50">
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?w=1600&q=80"
+          src="/images/hero/images (2).jfif"
           alt="Zimbabwe road"
           className="w-full h-full object-cover opacity-20"
         />
