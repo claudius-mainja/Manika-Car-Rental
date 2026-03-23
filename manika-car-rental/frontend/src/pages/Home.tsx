@@ -1,0 +1,359 @@
+import { useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import {
+  MapPin,
+  Users,
+  Shield,
+  Clock,
+  Star,
+  Phone,
+  ArrowRight,
+  ChevronRight,
+} from 'lucide-react';
+import { vehicles } from '../data/vehicles';
+import { services } from '../data/services';
+
+function HeroSection() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end start'],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
+
+  return (
+    <section
+      ref={ref}
+      className="relative min-h-screen overflow-hidden bg-gray-950"
+    >
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 dot-pattern opacity-20" />
+        <motion.div
+          style={{ y: useTransform(scrollYProgress, [0, 1], [0, -100]) }}
+          className="absolute top-20 left-10 w-96 h-96 bg-brand-orange/10 rounded-full blur-[120px]"
+        />
+        <motion.div
+          style={{ y: useTransform(scrollYProgress, [0, 1], [0, -150]) }}
+          className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-brand-orange/5 rounded-full blur-[150px]"
+        />
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-brand-orange/5 rounded-full"
+        />
+      </div>
+
+      <motion.div
+        style={{ y, opacity, scale }}
+        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 min-h-screen flex items-center"
+      >
+        <div className="grid lg:grid-cols-2 gap-16 items-center w-full">
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-800/50 backdrop-blur-xl rounded-full border border-brand-orange/20 mb-8"
+            >
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              <span className="text-gray-300 text-sm font-medium">
+                Premium Car Rental in Harare, Zimbabwe
+              </span>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="font-heading font-bold text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-6"
+            >
+              Your Journey <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-orange-light">
+                Starts Here
+              </span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="text-gray-400 text-lg md:text-xl leading-relaxed mb-8 max-w-xl"
+            >
+              Experience premium car rental services across Zimbabwe and beyond. 
+              From airport transfers to international journeys, we deliver comfort, 
+              reliability, and excellence on every trip.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <Link to="/fleet">
+                <motion.button
+                  whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(255, 107, 0, 0.4)' }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-4 bg-gradient-to-r from-brand-orange to-brand-orange-light text-white font-heading font-bold rounded-2xl shadow-lg shadow-brand-orange/30 flex items-center gap-3 text-lg"
+                >
+                  Explore Our Fleet
+                  <ArrowRight size={20} />
+                </motion.button>
+              </Link>
+              <a href="tel:+263776254884">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-4 bg-gray-800/50 backdrop-blur-xl text-white font-heading font-semibold rounded-2xl border border-gray-700 hover:bg-gray-800 transition-colors flex items-center gap-3"
+                >
+                  <Phone size={20} className="text-brand-orange" />
+                  Get a Free Quote
+                </motion.button>
+              </a>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.5 }}
+              className="flex flex-wrap gap-6 mt-10"
+            >
+              {[
+                { icon: <Shield size={18} />, text: 'Fully Insured' },
+                { icon: <Clock size={18} />, text: '24/7 Support' },
+                { icon: <Star size={18} />, text: 'Premium Fleet' },
+              ].map((badge) => (
+                <div key={badge.text} className="flex items-center gap-2 text-gray-400 text-sm">
+                  <span className="text-brand-orange">{badge.icon}</span>
+                  {badge.text}
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="relative hidden lg:block"
+          >
+            <div className="relative w-full aspect-square max-w-lg mx-auto">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent rounded-full blur-3xl" />
+              <img
+                src="https://images.unsplash.com/photo-1559416523-140ddc3d238c?w=800&q=80"
+                alt="Premium Car Rental"
+                className="relative z-10 w-full h-full object-contain floating"
+              />
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
+    </section>
+  );
+}
+
+function ServicesSection() {
+  const featuredServices = services.slice(0, 4);
+
+  return (
+    <section className="relative py-24 bg-gray-950 overflow-hidden">
+      <div className="absolute inset-0 dot-pattern opacity-10" />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <span className="text-brand-orange text-sm font-medium uppercase tracking-wider">
+            Our Services
+          </span>
+          <h2 className="font-heading font-bold text-4xl md:text-5xl text-white mt-4">
+            Comprehensive <span className="text-brand-orange">Car Rental</span> Solutions
+          </h2>
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto mt-4">
+            From airport transfers to safari adventures, we offer tailored solutions for every travel need across Zimbabwe and beyond.
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {featuredServices.map((service, index) => (
+            <motion.div
+              key={service.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group p-6 bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-800 hover:border-brand-orange/50 transition-all duration-300 hover:shadow-lg hover:shadow-brand-orange/10"
+            >
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-brand-orange to-brand-orange-light flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <MapPin size={24} className="text-white" />
+              </div>
+              <h3 className="font-heading font-semibold text-xl text-white mb-2">
+                {service.name}
+              </h3>
+              <p className="text-gray-400 text-sm mb-4 line-clamp-2">
+                {service.shortDesc}
+              </p>
+              <Link
+                to="/services"
+                className="text-brand-orange text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all"
+              >
+                Learn More <ChevronRight size={16} />
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FleetPreview() {
+  const featuredVehicles = vehicles.slice(0, 4);
+
+  return (
+    <section className="relative py-24 bg-gray-900/50 overflow-hidden">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <span className="text-brand-orange text-sm font-medium uppercase tracking-wider">
+            Our Fleet
+          </span>
+          <h2 className="font-heading font-bold text-4xl md:text-5xl text-white mt-4">
+            Premium <span className="text-brand-orange">Vehicles</span> for Every Journey
+          </h2>
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto mt-4">
+            Choose from our diverse fleet of well-maintained vehicles, from executive sedans to safari-ready SUVs.
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {featuredVehicles.map((vehicle, index) => (
+            <motion.div
+              key={vehicle.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700 hover:border-brand-orange/50 transition-all duration-300 hover:shadow-lg hover:shadow-brand-orange/10"
+            >
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src={vehicle.mainImage}
+                  alt={vehicle.name}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute top-4 right-4 px-3 py-1 bg-gray-900/80 backdrop-blur-sm rounded-full text-xs text-white font-medium">
+                  {vehicle.category}
+                </div>
+              </div>
+              <div className="p-5">
+                <h3 className="font-heading font-semibold text-lg text-white mb-2">
+                  {vehicle.name}
+                </h3>
+                <div className="flex items-center gap-4 text-gray-400 text-sm mb-4">
+                  <span className="flex items-center gap-1">
+                    <Users size={14} /> {vehicle.passengers} Seats
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <MapPin size={14} /> {vehicle.transmission}
+                  </span>
+                </div>
+                <Link
+                  to={`/fleet/${vehicle.id}`}
+                  className="block w-full py-2.5 bg-gradient-to-r from-brand-orange to-brand-orange-light text-white text-center rounded-xl font-medium hover:shadow-lg hover:shadow-brand-orange/30 transition-all"
+                >
+                  View Details
+                </Link>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-center mt-12"
+        >
+          <Link
+            to="/fleet"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gray-800 text-white rounded-xl font-medium border border-gray-700 hover:bg-gray-700 hover:border-brand-orange/50 transition-all"
+          >
+            View All Vehicles <ArrowRight size={20} />
+          </Link>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+function CTASection() {
+  return (
+    <section className="relative py-24 bg-gray-950 overflow-hidden">
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-orange/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-orange/10 rounded-full blur-[120px]" />
+      </div>
+      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="font-heading font-bold text-4xl md:text-5xl text-white mb-6">
+            Ready to Start Your <span className="text-brand-orange">Journey</span>?
+          </h2>
+          <p className="text-gray-400 text-lg mb-8">
+            Contact us today for a free quote or book your vehicle directly. Our team is available 24/7 to assist you.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/fleet">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-4 bg-gradient-to-r from-brand-orange to-brand-orange-light text-white font-heading font-bold rounded-2xl shadow-lg shadow-brand-orange/30 flex items-center gap-3 text-lg"
+              >
+                Book Now <ArrowRight size={20} />
+              </motion.button>
+            </Link>
+            <a href="tel:+263776254884">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-4 bg-gray-800 text-white font-heading font-semibold rounded-2xl border border-gray-700 hover:bg-gray-700 transition-colors flex items-center gap-3 text-lg"
+              >
+                <Phone size={20} className="text-brand-orange" />
+                Call Us Now
+              </motion.button>
+            </a>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+export default function Home() {
+  return (
+    <>
+      <HeroSection />
+      <ServicesSection />
+      <FleetPreview />
+      <CTASection />
+    </>
+  );
+}

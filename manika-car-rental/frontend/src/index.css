@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --background: #0a0a14;
+  --foreground: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar - Dark Theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #FF6B00, #FF8533);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #E05C00, #FF6B00);
+}
+
+/* 3D Perspective Container */
+.perspective-container {
+  perspective: 1500px;
+  perspective-origin: center;
+}
+
+/* Card 3D hover effect */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+
+.card-3d:hover {
+  transform: rotateY(5deg) rotateX(-5deg) translateZ(20px);
+}
+
+/* Floating animation */
+@keyframes float3d {
+  0%, 100% { transform: translateY(0) rotateX(0) rotateY(0); }
+  25% { transform: translateY(-15px) rotateX(2deg) rotateY(2deg); }
+  50% { transform: translateY(-10px) rotateX(0deg) rotateY(0deg); }
+  75% { transform: translateY(-20px) rotateX(-2deg) rotateY(-2deg); }
+}
+
+.floating {
+  animation: float3d 6s ease-in-out infinite;
+}
+
+/* Glowing text */
+.glow-text {
+  text-shadow: 0 0 20px rgba(255, 107, 0, 0.4), 0 0 40px rgba(255, 107, 0, 0.2);
+}
+
+/* Gradient text - Orange only */
+.gradient-text {
+  background: linear-gradient(135deg, #FF6B00 0%, #FF8533 50%, #FFA64D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass morphism - Dark */
+.glass {
+  background: rgba(26, 26, 46, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 107, 0, 0.2);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Section with perspective scroll */
+.section-3d {
+  transform-style: preserve-3d;
+}
+
+/* Stripe pattern background - Dark */
+.stripe-bg {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 107, 0, 0.03) 10px,
+    rgba(255, 107, 0, 0.03) 20px
+  );
+}
+
+/* Grid pattern - Dark */
+.grid-pattern {
+  background-image: 
+    linear-gradient(rgba(255, 107, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 107, 0, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Dot pattern - Dark */
+.dot-pattern {
+  background-image: radial-gradient(circle, rgba(255, 107, 0, 0.15) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(255, 107, 0, 0.3);
+  color: #ffffff;
+}
+
+/* Line clamp */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Smooth input focus */
+input:focus, select:focus, textarea:focus {
+  box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.2);
+}
+
+/* Button shine effect */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) rotate(45deg); }
+}
+
+/* Counter animation */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.count-up {
+  animation: countUp 0.6s ease-out forwards;
+}
+
+/* 3D Scroll Effects */
+@keyframes scrollReveal3d {
+  0% { 
+    opacity: 0; 
+    transform: perspective(1500px) rotateX(10deg) translateY(60px) scale(0.95); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: perspective(1500px) rotateX(0deg) translateY(0) scale(1); 
+  }
+}
+
+.reveal-3d {
+  animation: scrollReveal3d 0.8s ease-out forwards;
+}
+
+/* Parallax Layer */
+.parallax-layer {
+  transition: transform 0.1s linear;
+}
+
+/* Dark Backgrounds */
+.bg-dark-gradient {
+  background: linear-gradient(135deg, #0a0a14 0%, #1a1a2e 50%, #0a0a14 100%);
+}
+
+.bg-dark-card {
+  background: linear-gradient(145deg, rgba(26, 26, 46, 0.8) 0%, rgba(15, 15, 26, 0.9) 100%);
+}
+
+/* Orange Glow Effects */
+.orange-glow {
+  box-shadow: 0 0 30px rgba(255, 107, 0, 0.3), 0 0 60px rgba(255, 107, 0, 0.1);
+}
+
+.orange-glow-sm {
+  box-shadow: 0 0 15px rgba(255, 107, 0, 0.2);
+}
+
+/* Perspective Transform on Hover */
+.hover-3d {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hover-3d:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) translateZ(20px);
+  box-shadow: 0 30px 60px rgba(255, 107, 0, 0.15);
+}
+
+/* Animated Gradient Border */
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(255, 107, 0, 0.3); }
+  50% { border-color: rgba(255, 107, 0, 0.8); }
+}
+
+.animate-border-glow {
+  animation: borderGlow 3s ease-in-out infinite;
+}
+
+/* Image hover zoom */
+.img-zoom {
+  transition: transform 0.5s ease;
+}
+
+.img-zoom:hover {
+  transform: scale(1.05);
+}
+
+/* Text reveal animation */
+@keyframes textReveal {
+  from { 
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+  }
+  to { 
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+.text-reveal {
+  animation: textReveal 1s ease-out forwards;
+}
