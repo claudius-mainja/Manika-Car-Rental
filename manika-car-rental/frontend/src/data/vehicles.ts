@@ -83,13 +83,13 @@ export const vehicles: Vehicle[] = [
   },
   {
     id: "honda-accord",
-    name: "Honda Accord",
+    name: "Honda",
     category: "Executive Sedan",
     mainImage: "/images/vehicles/honda-accord/images (4).jfif",
     images: [
-      { url: "/images/vehicles/honda-accord/images (4).jfif", alt: "Honda Accord Front View" },
-      { url: "/images/vehicles/honda-accord/images (5).jfif", alt: "Honda Accord Side View" },
-      { url: "/images/vehicles/honda-accord/2VzxJQOYsyt4TYJf_img_7831.jpg", alt: "Honda Accord Interior" },
+      { url: "/images/vehicles/honda-accord/images (4).jfif", alt: "Honda Front View" },
+      { url: "/images/vehicles/honda-accord/images (5).jfif", alt: "Honda Side View" },
+      { url: "/images/vehicles/honda-accord/2VzxJQOYsyt4TYJf_img_7831.jpg", alt: "Honda Interior" },
     ],
     colors: [
       { name: "Black", hex: "#1a1a1a" },
@@ -122,7 +122,7 @@ export const vehicles: Vehicle[] = [
       "Advanced safety features",
     ],
     description:
-      "The Honda Accord delivers executive-class comfort with a refined interior and smooth ride. Ideal for business professionals and those seeking a premium driving experience in Harare and beyond. Make a statement at every destination.",
+      "The Honda delivers executive-class comfort with a refined interior and smooth ride. Ideal for business professionals and those seeking a premium driving experience in Harare and beyond. Make a statement at every destination.",
     suitableServices: [
       "Airport Pickup & Drop Off",
       "Business Trips",

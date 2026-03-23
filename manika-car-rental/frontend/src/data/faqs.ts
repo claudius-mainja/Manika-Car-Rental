@@ -59,7 +59,7 @@ export const faqs: FAQ[] = [
     id: 8,
     question: "What types of vehicles do you have available?",
     answer:
-      "Our fleet includes Toyota Quantum mini buses, Honda Accord sedans, mini SUVs, standard SUVs, double cab pickups, executive sedans, standard sedans, and mini buses ranging from 5 to 25 passengers. We have options for every need and budget.",
+      "Our fleet includes Toyota Quantum mini buses, Honda sedans, mini SUVs, standard SUVs, double cab pickups, executive sedans, standard sedans, and mini buses ranging from 5 to 25 passengers. We have options for every need and budget.",
     category: "Fleet",
   },
   {
