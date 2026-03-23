@@ -45,7 +45,7 @@ export const faqs: FAQ[] = [
     id: 6,
     question: "What is your cancellation policy?",
     answer:
-      "Cancellations made 48 hours or more before the rental start date receive a full refund. Cancellations within 24-48 hours receive a 50% refund. Cancellations less than 24 hours before the rental date are non-refundable, but we offer rescheduling options.",
+      "Cancellations made 72 hours or more before the rental start date receive 75% refund. Cancellations within 24-48 hours receive a 50% refund. Cancellations less than 24 hours before the rental date are non-refundable, but we offer rescheduling options.",
     category: "Policies",
   },
   {
